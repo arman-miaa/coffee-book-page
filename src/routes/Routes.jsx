@@ -8,18 +8,24 @@ import CoffeeCards from "../components/CoffeeCards";
 const router = createBrowserRouter([
   {
     path: "/",
-        element: <MainLayout></MainLayout>,
+    element: <MainLayout></MainLayout>,
     errorElement: <p>Error</p>,
     children: [
       {
         path: "/", // or index: true, if nasted component not have here
-            element: <Home></Home>,
-            loader: () => fetch('../categories.json'),
-            children: [
-                {
-                    path: '/category/:category',
-                    element: <CoffeeCards></CoffeeCards>,
-            },
+        element: <Home></Home>,
+        loader: () => fetch("../categories.json"),
+        children: [
+          {
+            path: "/",
+            element: <CoffeeCards></CoffeeCards>,
+            loader: () => fetch("../coffees.json"),
+          },
+          {
+            path: "/category/:category",
+            element: <CoffeeCards></CoffeeCards>,
+            loader: () => fetch("../coffees.json"),
+          },
         ],
       },
       {

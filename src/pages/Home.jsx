@@ -4,7 +4,8 @@ import Categories from "../components/Categories";
 import Heading from "../components/Heading";
 
 const Home = () => {
-    const categories = useLoaderData();
+  const categories = useLoaderData();
+  // console.log(categories);
     return (
       <div>
         {/* Banner */}
