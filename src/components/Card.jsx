@@ -1,11 +1,27 @@
+import { Link } from "react-router-dom";
 
 const Card = ({ coffee }) => {
     // console.log(coffee);
     const { name,image,category,origin,type,id,rating,popularity} = coffee || {};
     return (
-        <div>
-            <h1>{name} </h1>
-        </div>
+      <div className="flex relative">
+        <Link
+          to={`/coffee${id}`}
+          className=" transition hover:scale-105 shadow-xl rounded-xl overflow-hidden"
+        >
+          <figure className="w-full h-48 overflow-hidden ">
+            <img src={image} alt="" />
+          </figure>
+          <div>
+            <h1>Name: {name}</h1>
+            <p>Category: {category}</p>
+            <p>Type: {type}</p>
+            <p>Origin: {origin}</p>
+            <p>Raing: {rating}</p>
+            <p>Popular: {popularity}</p>
+          </div>
+        </Link>
+      </div>
     );
 };
 
